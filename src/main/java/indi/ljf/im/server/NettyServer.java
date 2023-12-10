@@ -59,6 +59,7 @@ public class NettyServer {
 
                         //热插拔身份校验
                         ch.pipeline().addLast("AuthHandler", new AuthHandler());
+                        //todo 根据msgCode 映射到不同的handler进行处理，使用protobuf进行数据传输
                         //单用户消息处理
                         ch.pipeline().addLast("MessageRequestHandler", new SingleChatRequestHandler());
                         //创建群聊处理
